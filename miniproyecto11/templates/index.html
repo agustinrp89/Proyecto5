@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicación de Pintura</title>
+    <style>
+        /* Estilos CSS para el lienzo */
+        #canvas {
+            border: 1px solid black;
+        }
+
+        .color {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aplicación de Pintura</h1>
+    <div id="colorPalette">
+        <div class="color" style="background-color: red;"></div>
+        <div class="color" style="background-color: blue;"></div>
+        <div class="color" style="background-color: green;"></div>
+        <div class="color" style="background-color: yellow;"></div>
+        <div class="color" style="background-color: black;"></div>
+    </div>
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    <script>
+        // Manejador de eventos para dibujar en el canvas
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var isDrawing = false;
+        var selectedColor = 'black';
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        function startDrawing(event) {
+            isDrawing = true;
+            draw(event);
+        }
+
+        function draw(event) {
+            if (!isDrawing) return;
+
+            var x = event.offsetX;
+            var y = event.offsetY;
+
+            ctx.fillStyle = selectedColor;
+            ctx.fillRect(x, y, 5, 5);
+        }
+
+        function stopDrawing(event) {
+            isDrawing = false;
+        }
+
+        var colorPalette = document.getElementById('colorPalette');
+        var colors = colorPalette.getElementsByClassName('color');
+
+        for (var i = 0; i < colors.length; i++) {
+            colors[i].addEventListener('click', selectColor);
+        }
+
+        function selectColor(event) {
+            var selectedDiv = event.target;
+            selectedColor = selectedDiv.style.backgroundColor;
+        }
+    </script>
+</body>
+</html>
