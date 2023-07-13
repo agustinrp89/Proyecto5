@@ -19,7 +19,7 @@ def buscar_ratings_peliculas(pelicula):
     # Realizar la solicitud a la API de TMDb
     url = f"https://api.themoviedb.org/3/search/movie"
     params = {
-        'api_key': '1802dcaf59ca6c1f70ebb3c47dc1f245',
+        'api_key': 'API_KEY',
         'query': pelicula
     }
     response = requests.get(url, params=params)
