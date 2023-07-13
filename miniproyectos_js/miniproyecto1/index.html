@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Ingresos</title>
+  <script src="script.js"></script>
+</head>
+<body>
+  <h1>Calculadora de Ingresos</h1>
+  <label for="horas">Horas trabajadas por semana:</label>
+  <input type="number" id="horas" min="0">
+  <br>
+  <label for="tarifa">Tarifa por hora:</label>
+  <input type="number" id="tarifa" min="0">
+  <br>
+  <button onclick="calcularIngresos()">Calcular</button>
+  <br>
+  <table id="tabla-resultados">
+    <tr>
+      <th>Semana</th>
+      <th>Horas trabajadas</th>
+      <th>Tarifa por hora</th>
+      <th>Ingresos semanales</th>
+    </tr>
+  </table>
+</body>
+</html>
