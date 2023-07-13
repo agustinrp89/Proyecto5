@@ -1,0 +1,45 @@
+/* Estilo para el encabezado */
+h1 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  /* Estilo para el formulario */
+  form {
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estilo para el mensaje de rating */
+  p.rating {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  

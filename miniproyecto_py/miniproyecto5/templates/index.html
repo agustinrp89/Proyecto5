@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego del Ahorcado</title>
+</head>
+<body>
+    <h1>Juego del Ahorcado</h1>
+
+    {% if lost %}
+        <h2>{{ message }}</h2>
+        <p>La palabra era: {{ word }}</p>
+        <form action="/start" method="POST">
+            <button type="submit">Volver a jugar</button>
+        </form>
+    {% elif won %}
+        <h2>{{ message }}</h2>
+        <form action="/start" method="POST">
+            <button type="submit">Volver a jugar</button>
+        </form>
+    {% else %}
+        {% if attempts_left > 0 %}
+            <h2>Adivina la palabra</h2>
+            <p>Intentos restantes: {{ attempts_left }}</p>
+            <p>Palabra: {{ masked_word }}</p>
+            <form action="/play" method="POST">
+                <label for="guess">Ingresa una letra:</label>
+                <input type="text" id="guess" name="guess" required pattern="[a-zA-Z]" maxlength="1">
+                <br>
+                <button type="submit">Adivinar</button>
+            </form>
+        {% else %}
+            <h2>Perdiste</h2>
+            <p>La palabra era: {{ chosen_word }}</p>
+            <form action="/start" method="POST">
+                <button type="submit">Volver a jugar</button>
+            </form>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
+
